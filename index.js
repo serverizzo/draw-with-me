@@ -20,6 +20,10 @@ io.on('connection', (socket) => {
         io.emit('chat', data)
     })
 
+    socket.on('isTyping', function (data) {
+        io.emit('isTyping', data)
+    })
+
     socket.on('disconnect', () => {
         console.log("user disconnected")
     })
