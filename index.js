@@ -14,4 +14,9 @@ const io = socket(server)
 // param socket is the 'one particular socket' that is passed on connection to the server
 io.on('connection', (socket) => {
     console.log('connection made')
+    socket.emit('welcome')
+
+    socket.on('disconnect', () => {
+        console.log("user disconnected")
+    })
 })
