@@ -16,6 +16,10 @@ io.on('connection', (socket) => {
     console.log('connection made')
     socket.emit('welcome')
 
+    socket.on('chat', function (data) {
+        io.emit('chat', data)
+    })
+
     socket.on('disconnect', () => {
         console.log("user disconnected")
     })
