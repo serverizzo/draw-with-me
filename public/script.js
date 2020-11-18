@@ -4,7 +4,6 @@ const sendbtn = document.getElementById("send")
 const output = document.getElementById("output")
 const isTyping = document.getElementById("isTyping")
 
-let counter = 0;
 
 // make connection 
 const socket = io()
