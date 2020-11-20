@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
 
     // p5 
     socket.on('clicked', function (data) {
-        console.log('reached clicked')
+        // console.log('reached clicked')
         io.emit('clicked', data)
     })
 
