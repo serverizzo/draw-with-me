@@ -8,10 +8,6 @@ socket.on('welcome', (data) => {
 })
 
 
-
-
-
-
 // recieve typing detection
 socket.on('isTyping', function (data) {
     // console.log(`${data.handel} is typing`)
@@ -23,21 +19,29 @@ socket.on('isTyping', function (data) {
 
 
 // emit on typing detection
-// message.addEventListener('input', () => {
-//     console.log(`message input has changed: ${message.value}`)
+message.addEventListener('input', () => {
+    console.log(`message input has changed: ${message.value}`)
 
-//     // While a user did not press send or is still working on a message
+    // While a user did not press send or is still working on a message
 
-//     socket.emit('isTyping', { handel: handel.value })
+    socket.emit('isTyping', { handel: handel.value })
+})
+
+sendbtn.addEventListener('click', () => {
+    socket.emit('chat', {
+        message: message.value,
+        handel: handel.value
+    })
+    message.value = ""
+    isTyping.innerHTML = ""
+})
+
+
+
+// p5 recieveing sockets
+// socket.on('clicked', (data) => {
+//     console.log('Recieved clicked')
+
+//     console.log(data)
+//     circle(data.mouseX, data.mouseY, 100)
 // })
-
-// sendbtn.addEventListener('click', () => {
-//     socket.emit('chat', {
-//         message: message.value,
-//         handel: handel.value
-//     })
-//     message.value = ""
-//     isTyping.innerHTML = ""
-// })
-
-

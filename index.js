@@ -24,6 +24,13 @@ io.on('connection', (socket) => {
         io.emit('isTyping', data)
     })
 
+
+    // p5 
+    socket.on('clicked', function (data) {
+        console.log('reached clicked')
+        io.emit('clicked', data)
+    })
+
     socket.on('disconnect', () => {
         console.log("user disconnected")
     })
