@@ -29,10 +29,3 @@ function mouseClicked() {
     console.log('Sending Clicked')
 
 }
-
-socket.on('clicked', (data) => {
-    console.log('Recieved')
-
-    console.log(data)
-    circle(data.mouseX, data.mouseY, 100)
-})
