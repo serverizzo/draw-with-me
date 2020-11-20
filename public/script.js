@@ -4,6 +4,7 @@ const message = document.getElementById('message')
 const output = document.getElementById('output')
 
 
+
 // make connection 
 const socket = io()
 
@@ -13,15 +14,6 @@ socket.on('welcome', (data) => {
 
 socket.on('chat', (data) => {
     output.innerHTML += `<p><strong>${data.username}:</strong> ${data.message}</p>`
-})
-
-
-
-socket.on('clicked', (data) => {
-    console.log('Recieved clicked')
-
-    console.log(data)
-    circle(data.mouseX, data.mouseY, 100)
 })
 
 
@@ -53,4 +45,13 @@ sendbtn.addEventListener('click', () => {
     message.value = ""
 })
 
+
+
+// p5 recieved emits
+socket.on('clicked', (data) => {
+    // console.log('Recieved clicked')
+    // console.log(data)
+    fill(data.color)
+    circle(data.mouseX, data.mouseY, 100)
+})
 

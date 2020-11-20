@@ -54,7 +54,7 @@ label{
     padding: 10px 20px;
 }
 
-input{
+.message-input{
     padding: 10px 20px;
     box-sizing: border-box;
     background: #eee;

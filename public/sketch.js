@@ -1,3 +1,6 @@
+const colorpicker = document.getElementById('colorpicker')
+
+
 function setup() {
 
 
@@ -19,13 +22,22 @@ function draw() {
 }
 
 function mouseClicked() {
-    socket.emit('clicked',
-        {
-            mouseX: mouseX,
-            mouseY: mouseY,
-            size: 20
-        })
-    // circle(mouseX, mouseY, 20);
-    console.log('Sending Clicked')
+    socket.emit('clicked', {
+        mouseX: mouseX,
+        mouseY: mouseY,
+        color: colorpicker.value
+    })
+    // console.log(colorpicker.value)
 
+    // circle(mouseX, mouseY, 20);
+    // console.log('Sending Clicked')
+}
+
+function mouseDragged() {
+    // console.log("the mouse is being dragged")
+    socket.emit('clicked', {
+        mouseX: mouseX,
+        mouseY: mouseY,
+        color: colorpicker.value
+    })
 }
